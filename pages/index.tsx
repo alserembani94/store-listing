@@ -15,6 +15,11 @@ export default function Home() {
           <h1>{item.name}</h1>
           <p>ID: {item.item_id}</p>
           <p>SKU: {item.sku}</p>
+          <a
+            href={`https://nft-solutions.web.app/?merchant_id=319123&project_id=196778&item_sku=${item.sku}&item_id=${item.item_id}`}
+          >
+            Link to staging store for {item.sku}
+          </a>
         </div>
       ))}
     </div>
