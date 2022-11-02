@@ -10,7 +10,7 @@ export default function Home() {
   );
   return (
     <div className={styles.container}>
-      {data.items.map((item: any) => (
+      {data?.items.map((item: any) => (
         <div>
           <h1>{item.name}</h1>
           <p>ID: {item.item_id}</p>
