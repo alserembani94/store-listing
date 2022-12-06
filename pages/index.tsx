@@ -17,7 +17,7 @@ export default function Home() {
     fetcher
   );
   return (
-    <div className="bg-slate-800">
+    <div>
       <div className="sticky top-0 bg-amber-300 px-8 py-4 text-center">
         <p>
           To use different project, just add `merchant_id` OR `project_id` OR
