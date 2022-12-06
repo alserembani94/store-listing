@@ -5,7 +5,7 @@ interface Props {
 }
 
 const Item: React.FC<Props> = ({ item, merchant_id, project_id }) => (
-  <div className="rounded-lg overflow-hidden shadow-lg bg-slate-600 bg-opacity-50 text-white border border-slate-800">
+  <div className="rounded-lg overflow-hidden shadow-lg bg-slate-600 bg-opacity-50 text-white border border-slate-800 fade-in-comp">
     <img
       className="w-full h-40 object-cover"
       src={item.image_url}

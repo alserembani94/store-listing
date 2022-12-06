@@ -12,12 +12,12 @@ export default function Home() {
   const project_id = router.query.project_id
     ? Number(router.query.project_id)
     : 196778;
-  const { data, error } = useSWR(
+  const { data, error, isValidating } = useSWR(
     `https://money-flow-api-test.xsolla.com/api/v1/store/project/${project_id}/items/nft`,
     fetcher
   );
   return (
-    <div>
+    <div className="flex flex-col min-h-screen">
       <div className="sticky top-0 bg-amber-300 px-8 py-4 text-center">
         <p>
           To use different project, just add `merchant_id` OR `project_id` OR
@@ -27,16 +27,24 @@ export default function Home() {
           `/?merchant_id=319123&amp;project_id=196778`
         </p>
       </div>
-      <div className="p-8 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {data?.items.map((item: any) => (
-          <Item
-            item={item}
-            merchant_id={merchant_id}
-            project_id={project_id}
-            key={item.item_id}
-          />
-        ))}
-      </div>
+      {isValidating && (
+        <div className="w-full h-full flex flex-col items-center justify-center flex-1 text-center text-white gap-4 uppercase font-bold">
+          <div className="w-16 h-16 border-8 border-t-transparent rounded-full animate-spin" />
+          <p>Loading</p>
+        </div>
+      )}
+      {!isValidating && (
+        <div className="p-8 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {data?.items.map((item: any) => (
+            <Item
+              item={item}
+              merchant_id={merchant_id}
+              project_id={project_id}
+              key={item.item_id}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 }
