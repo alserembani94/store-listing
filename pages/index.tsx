@@ -13,7 +13,7 @@ export default function Home() {
     ? Number(router.query.project_id)
     : 196778;
   const { data, error, isValidating } = useSWR(
-    `https://money-flow-api-test.xsolla.com/api/v1/store/merchants/${merchant_id}/projects/${project_id}/items/nft`,
+    `https://money-flow-api-test.xsolla.com/api/v1/store/projects/${project_id}/items/nft`,
     fetcher
   );
   return (
